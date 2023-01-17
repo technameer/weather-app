@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Weather App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Usage guide</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Popular
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Kohat</a></li>
+              <li><a class="dropdown-item" href="#">Lahore</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Karachi</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="cityname" autocomplete="off" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="submit" class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-3">
+    <h1 class="display-4 fw-normal text-center my-3" >Weather For <span id="title"></span></h1>
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Humidity</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class="text-muted fw-light"> %</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Cloud PCT is <span id="cloud_pct"></span></li>
+                <li>Humidity is <span id="humidity"></span></li>
+                <li>Feels Like <span id="feels_like"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Temprature</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class="text-muted fw-light"> &deg;c</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Temprature is <span id="temp"></span></li>
+                <li>Min Temprature <span id="min_temp"></span></li>
+                <li>Max Temprature<span id="max_temp"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Wind Speed</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="wind_speed"></span><small class="text-muted fw-light"> Km/hr</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind Degrees <span id="wind_degrees"></span></li>
+                <li>Sunrise <span id="sunrise"></span></li>
+                <li>Sunset <span id="sunset"></span></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="display-6 text-center mb-4">Other Cities</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">Cloud PCT</th>
+              <th style="width: 22%;">Feels Like</th>
+              <th style="width: 22%;">Humidity</th>
+              <th style="width: 22%;">Max Temp</th>
+              <th style="width: 22%;">Min Temp</th>
+              <th style="width: 22%;">Sunrise</th>
+              <th style="width: 22%;">Sunset</th>
+              <th style="width: 22%;">Temp</th>
+              <th style="width: 22%;">Wind degrees</th>
+              <th style="width: 22%;">Wind Speed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Kohat</th>
+              <td id="cloud_pct_fork">1</td>
+              <td id="feelslike_fork">2</td>
+              <td id="humidity_fork">3</td>
+              <td id="max_temp_fork">4</td>
+              <td id="min_temp_fork">5</td>
+              <td id="sunrise_fork">6</td>
+              <td id="sunset_fork">7</td>
+              <td id="temp_fork">8</td>
+              <td id="wind_degrees_fork">9</td>
+              <td id="wind_speed_fork">10</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Peshawar</th>
+              <td id="cloud_pct_forp">1</td>
+              <td id="feelslike_forp">2</td>
+              <td id="humidity_forp">3</td>
+              <td id="max_temp_forp">4</td>
+              <td id="min_temp_forp">5</td>
+              <td id="sunrise_forp">6</td>
+              <td id="sunset_forp">7</td>
+              <td id="temp_forp">8</td>
+              <td id="wind_degrees_forp">9</td>
+              <td id="wind_speed_forp">10</td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Rawalpindi</th>
+              <td id="cloud_pct_forrawa">1</td>
+              <td id="feelslike_forrawa">2</td>
+              <td id="humidity_forrawa">3</td>
+              <td id="max_temp_forrawa">4</td>
+              <td id="min_temp_forrawa">5</td>
+              <td id="sunrise_forrawa">6</td>
+              <td id="sunset_forrawa">7</td>
+              <td id="temp_forrawa">8</td>
+              <td id="wind_degrees_forrawa">9</td>
+              <td id="wind_speed_forrawa">10</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Lahore</th>
+              <td id="cloud_pct_forlah">1</td>
+              <td id="feelslike_forlah">2</td>
+              <td id="humidity_forlah">3</td>
+              <td id="max_temp_forlah">4</td>
+              <td id="min_temp_forlah">5</td>
+              <td id="sunrise_forlah">6</td>
+              <td id="sunset_forlah">7</td>
+              <td id="temp_forlah">8</td>
+              <td id="wind_degrees_forlah">9</td>
+              <td id="wind_speed_forlah">10</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Karachi</th>
+              <td id="cloud_pct_forkar">1</td>
+              <td id="feelslike_forkar">2</td>
+              <td id="humidity_forkar">3</td>
+              <td id="max_temp_forkar">4</td>
+              <td id="min_temp_forkar">5</td>
+              <td id="sunrise_forkar">6</td>
+              <td id="sunset_forkar">7</td>
+              <td id="temp_forkar">8</td>
+              <td id="wind_degrees_forkar">9</td>
+              <td id="wind_speed_forkar">10</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Islamabad</th>
+              <td id="cloud_pct_forisla">1</td>
+              <td id="feelslike_forisla">2</td>
+              <td id="humidity_forisla">3</td>
+              <td id="max_temp_forisla">4</td>
+              <td id="min_temp_forisla">5</td>
+              <td id="sunrise_forisla">6</td>
+              <td id="sunset_forisla">7</td>
+              <td id="temp_forisla">8</td>
+              <td id="wind_degrees_forisla">9</td>
+              <td id="wind_speed_forisla">10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
